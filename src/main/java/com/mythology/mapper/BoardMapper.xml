@@ -12,8 +12,17 @@
         ,board_openDate
     </sql>
 
-    <insert id="insertBoard">
-
+    <insert id="insertBoard" parameterType="BoardDTO">
+        INSERT INTO board (
+        <include refid="boardColumns"/>
+        ) VALUES (
+        #{boardnum}
+        ,#{boardtype}
+        ,#{boardethinic}
+        ,#{boardwriter}
+        ,#{boardcontent}
+        ,#{board
+        )
 
     </insert>
 
