@@ -9,30 +9,35 @@ import java.util.Date;
 @Setter
 public class BoardDTO {
     // mySQL 쿼리
-    /* main_board(
-	board_num not null auto_increment, // 게시글 번호
-	board_type varchar(10) not null, // 게시글 타입
-	board_ethnic varchar(15) not null, // 게시글 말머리
-	board_title varchar(50) not null, // 게시글 제목
-	board_writer varchar(30) not null, // 게시글 작성자
-	board_content text not null, // 게시글 내용
-	board_regDate timestamp not null default now(), // 게시글 등록일
-	board_openDate timestamp, // 게시글 공개기한
-	board_viewCnt int default 0, // 게시글 조회수
-	board_recCnt int default 0, // 게시글 추천수
-	board_buyCnt int default 0, // 게시글 구매수
-	primary key(board_num)
-    ); */
+    /* #테이블
+    create table board(
+    bno int not null auto_increment comment '게시글 번호(PK)',
+    type varchar(10) not null comment '타입',
+    ethnic varchar(15) not null comment '말머리',
+    title varchar(50) not null comment '제목',
+    content text not null comment '내용',
+    writer varchar(30) not null comment '작성자',
+    viewCnt int default 0 comment '조회수',
+    recCnt int default 0 comment '추천수',
+    buyCnt int default 0 comment '구입수',
+    regDate timestamp not null default now() comment '등록일',
+    updDate timestamp null comment '수정일',
+    openDate timestamp comment '공개기한',
+    notice_yn enum('Y', 'N') not null default 'N' comment '공지글 여부',
+    primary key(bno)
+    ) comment '게시판'; */
 
-    private int board_num;
-    private String board_type;
-    private String board_ethnic;
-    private String board_title;
-    private String board_writer;
-    private String board_content;
-    private Date board_regDate;
-    private Date board_openDate;
-    private int board_viewCnt;
-    private int board_recCnt;
-    private int board_buyCnt;
+    private int bno;
+    private String type;
+    private String ethnic;
+    private String title;
+    private String content;
+    private String writer;
+    private int viewCnt;
+    private int recCnt;
+    private int buyCnt;
+    private Date regDate;
+    private Date updDate;
+    private Date openDate;
+    private String notice_yn;
 }
