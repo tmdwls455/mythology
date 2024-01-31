@@ -22,12 +22,16 @@ public class BoardDTO {
     buyCnt int default 0 comment '구입수',
     regDate timestamp not null default now() comment '등록일',
     updDate timestamp null comment '수정일',
-    openDate timestamp comment '공개기한',
+    delDate timestamp null comment '삭제일',
+    openDate timestamp null comment '공개 기한',
     notice_yn enum('Y', 'N') not null default 'N' comment '공지글 여부',
+    delete_yn enum('Y', 'N') not null default 'N' comment '삭제글 여부',
+    secret_yn enum('Y', 'N') not null default 'N' comment '비밀글 여부',
     primary key(bno)
-    ) comment '게시판'; */
+    ) comment '게시판';
+    */
 
-    private int bno;
+    private long bno;
     private String type;
     private String ethnic;
     private String title;
@@ -38,6 +42,9 @@ public class BoardDTO {
     private int buyCnt;
     private Date regDate;
     private Date updDate;
+    private Date delDate;
     private Date openDate;
-    private String notice_yn;
+    private String noticeYn;
+    private String deleteYn;
+    private String secretYn;
 }

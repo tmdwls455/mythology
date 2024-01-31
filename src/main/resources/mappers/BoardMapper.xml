@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mythology.mapper.BoardMapper">
+    <sql id="boardColumns">
+        bno
+        ,type
+        ,ethnic
+        ,title
+        ,content
+        ,writer
+        ,viewCnt
+        ,recCnt
+        ,buyCnt
+        ,regDate
+        ,updDate
+        ,delDate
+        ,openDate
+        ,notice_yn
+        ,secret_yn
+    </sql>
+
+    <insert id="insertBoard" parameterType="BoardDTO">
+        INSERT INTO board (
+        <include refid="boardColumns"/>
+        ) VALUES (
+        #{bno}
+        ,#{type}
+        ,#{ethnic}
+        ,#{title}
+        ,#{content}
+        ,#{writer}
+        ,0
+        ,0
+        ,0
+        ,now()
+        ,NULL
+        ,NULL
+        ,NULL
+        ,IFNULL(#{noticeYn}, 'N')
+        ,IFNULL(#{secretYn}, 'N')
+        )
+    </insert>
+
+    <select id="selectBoardDetail" parameterType="long"
+                                    resultType="BoardDTO">
+        SELECT
+                <include refid="boardColumns"/>
+        FROM
+                board
+        WHERE
+                bno = #{bno}
+    </select>
+
+    <update id="updateBoard" parameterType="BoardDTO">
+        UPDATE board
+        SET
+                updDate=NOW()
+                ,type = #{type}
+                ,ethnic = #{ethnic}
+                ,title = #{title}
+                ,content = #{content}
+                ,writer = #{writer}
+                ,notice_yn = IFNULL(#{noticeYn}, 'N')
+                ,secret_yn = IFNULL(#{secretYn}, 'N')
+        WHERE
+                delete_yn = 'N'
+        AND
+                bno = #{bno}
+    </update>
+
+    <update id="deleteBoard" parameterType="long">
+        UPDATE board
+        SET
+                delete_yn = 'Y'
+                ,delDate = NOW()
+        WHERE
+                bno = #{bno}
+    </update>
+    
+    <select id="selectBoardList" parameterType="BoardDTO"
+                                resultType="int">
+        SELECT
+                <include refid="boardColumns"/>
+        FROM
+                board
+        WHERE
+                delete_yn = 'N'
+        ORDER BY
+                notice_yn ASC
+                ,bno DESC
+                ,regDate DESC
+    </select>
+
+    <select id="selectBoardTotalCount" parameterType="BoardDTO"
+                                    resultType="int">
+        SELECT
+                COUNT(*)
+        FROM
+                board
+        WHERE
+                delete_yn='N'
+    </select>
+
+    <update id="cntPlus" parameterType="long">
+        UPDATE board
+        SET
+                viewCnt = viewCnt+1
+        WHERE
+                bno = #{bno}
+    </update>
+</mapper>
