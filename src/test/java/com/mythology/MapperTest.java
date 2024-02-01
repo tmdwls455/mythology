@@ -46,7 +46,7 @@ public class MapperTest {
         params.setTitle("수정");
         params.setContent("수정한 내용");
         params.setWriter("수정자");
-        params.setBno(1);
+        params.setBno((long) 1);
 
         int result = boardMapper.updateBoard(params);
         System.out.println("결과 ------------> "+result);

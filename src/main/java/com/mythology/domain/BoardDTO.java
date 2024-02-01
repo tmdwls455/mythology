@@ -31,7 +31,7 @@ public class BoardDTO {
     ) comment '게시판';
     */
 
-    private long bno;
+    private Long bno;
     private String type;
     private String ethnic;
     private String title;
