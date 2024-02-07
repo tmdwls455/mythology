@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang ="ko" xmlns:th="http://www.thymeleaf.org"
+                 xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                 layout:decorator="~{layout/default}">
 <head>
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <!-- 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-
     <meta charset="UTF-8">
-    <title>테스트 쓰기 페이지</title>
+    <title>게시물 작성</title>
 </head>
 <body>
-<!-- js -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"></script>
+    <div layout:fragment="content" class="contatiner">
+        <form method="post" th:if="${dto == null}">
 
-    <h1>게시판</h1>
+
+        </form>
+    </div>
 </body>
 </html>

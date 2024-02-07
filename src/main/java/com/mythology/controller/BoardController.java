@@ -14,6 +14,14 @@ public class BoardController {
 
     @GetMapping("/board/write.do")
     public String openBoardWrite(Model model) {
+        String title = "타이틀";
+        String content = "내용";
+        String writer = "저자";
+
+        model.addAttribute("title", title);
+        model.addAttribute("content", content);
+        model.addAttribute("writer", writer);
+
         return "board/write";
     }
 }
