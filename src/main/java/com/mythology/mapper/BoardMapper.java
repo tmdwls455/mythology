@@ -8,10 +8,10 @@ import java.util.List;
 @Mapper
 public interface BoardMapper {
     public int insertBoard(BoardDTO params);
-    public BoardDTO selectBoardDetail(Long board_num);
+    public BoardDTO selectBoardDetail(Long bno);
     public int updateBoard(BoardDTO params);
-    public int deleteBoard(Long board_num);
+    public int deleteBoard(Long bno);
     public List<BoardDTO> selectBoardList();
     public int selectBoardTotalCount();
-    public boolean cntPlus(Long board_num);
+    public boolean cntPlus(Long bno);
 }

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="~{layout/default}">
+      layout:decorator="templates/layout/default">
 <th:block layout:fragment="title">
     <title>게시글 작성</title>
 </th:block>
 
 <th:block layout:fragment="content">
     <div class="card-content">
-        <form class="form-horizontal" th:action="@{/board/register.do}"
+        <form class="form-horizontal" th:action="@{/board/write.do}"
               th:object="${board}" method="post" onsubmit="return registerBoard(this)">
             <!--/* update의 경우 서버로 전달할 게시글 번호 (PK) */-->
             <input type="hidden" th:if="*{bno != null and bno > 0}" th:field="*{bno}" />

@@ -134,7 +134,6 @@
 					cancelButtonText: "No, stay plx!", 
 					closeOnConfirm: false,
 					closeOnCancel: true,
-					confirmButtonColor: '#f60e0e',
 				}, function(isConfirm){   
 					if (isConfirm) {     
 						swal({

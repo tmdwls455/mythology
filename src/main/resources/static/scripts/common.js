@@ -5,7 +5,7 @@
  * @returns true or false
  */
 function isEmpty(value) {
-	if (value == null || value == "" || value == undefined || (value != null && typeof value == "object" && !Object.keys(value).length)) {
+	if (value == null || value === "" || value === undefined || (value != null && typeof value == "object" && !Object.keys(value).length)) {
 		return true;
 	}
 
@@ -58,7 +58,7 @@ function equals(field1, field2, fieldName) {
  */
 function isValid(field, fieldName, focusField) {
 
-	if (isEmpty(field.value) == true) {
+	if (isEmpty(field.value) === true) {
 		/* 종성으로 조사(을 또는 를) 구분 */
 		var message = (charToUnicode(fieldName) > 0) ? fieldName + "을 확인해 주세요." : fieldName + "를 확인해 주세요."; 
 		field.focus();

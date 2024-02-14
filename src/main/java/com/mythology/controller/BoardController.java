@@ -16,7 +16,11 @@ import java.util.List;
 public class BoardController {
 
     @Autowired
-    private BoardService boardService;
+    private final BoardService boardService;
+
+    public BoardController(BoardService boardService) {
+        this.boardService = boardService;
+    }
 
     @GetMapping("/board/write.do")
     public String openBoardWrite(@RequestParam(value = "bno", required = false) Long bno, Model model) {
