@@ -1,12 +1,11 @@
 package com.mythology.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
 public class BoardDTO {
     // mySQL 쿼리
     /* #테이블
