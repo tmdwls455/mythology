@@ -1,7 +1,8 @@
-package com.mythology.service;
+package com.mythology.service.impl;
 
 import com.mythology.domain.BoardDTO;
-import com.mythology.mapper.BoardMapper;
+import com.mythology.repository.BoardMapper;
+import com.mythology.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
