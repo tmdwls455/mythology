@@ -1,4 +1,4 @@
-package com.mythology.repository;
+package com.mythology.mapper;
 
 import com.mythology.domain.BoardDTO;
 import org.apache.ibatis.annotations.Mapper;

@@ -3,7 +3,7 @@ package com.mythology;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mythology.domain.BoardDTO;
-import com.mythology.repository.BoardMapper;
+import com.mythology.mapper.BoardMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

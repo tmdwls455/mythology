@@ -1,8 +1,8 @@
 package com.mythology.service;
 
-import com.mythology.domain.Member;
+import com.mythology.domain.MemberDTO;
 
 public interface MemberService {
 
-    String join(Member member);
+    boolean memberJoin(MemberDTO member);
 }

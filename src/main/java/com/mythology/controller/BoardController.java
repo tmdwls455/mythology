@@ -2,6 +2,7 @@ package com.mythology.controller;
 
 import com.mythology.domain.BoardDTO;
 import com.mythology.service.BoardService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
@@ -13,17 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class BoardController {
 
     @Autowired
     private final BoardService boardService;
 
-    public BoardController(BoardService boardService) {
-        this.boardService = boardService;
-    }
 
     @GetMapping("/board/write.do")
     public String openBoardWrite(@RequestParam(value = "bno", required = false) Long bno, Model model) {
+        // 게시글 작성 페이지
         if (bno == null) {
             model.addAttribute(("board"), new BoardDTO());
         } else {
@@ -39,6 +39,7 @@ public class BoardController {
 
     @GetMapping(value = "/board/list.do")
     public String openBoardList(Model model) {
+        // 게시글 리스트
         List<BoardDTO> boardList = boardService.getBoardList();
         model.addAttribute("boardList", boardList);
 
@@ -47,6 +48,7 @@ public class BoardController {
 
     @GetMapping("/board/view.do")
     public String openBoardDetail(@RequestParam(value = "bno", required = false) Long bno, Model model) {
+        // 게시글 읽기
         if (bno == null) {
             // 올바르지 않은 접근입니다
             return "redirect:/board/list.do";
@@ -67,6 +69,7 @@ public class BoardController {
     @PostMapping("/board/delete.do")
     public String deleteBoard(@RequestParam(value="idx", required = false)
                               Long idx) {
+        // 게시글 삭제
         if(idx==null) {
             //올바르지 않은 접근
             return "redirect:/board/list.do";
